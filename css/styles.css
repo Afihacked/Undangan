@@ -20,7 +20,7 @@ h3 {
 p,
 li {
   line-height: 1.6;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
 }
 
 ul,
@@ -255,6 +255,10 @@ main {
   font-weight: bold;
   color: #ffcc00;
   text-transform: capitalize;
+}
+
+span {
+  font-size: 1, 4rem;
 }
 
 /* === RESPONSIVE ADJUSTMENTS === */
