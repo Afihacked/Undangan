@@ -259,7 +259,7 @@ main {
 
 @media (max-width: 768px) {
   .hero-img {
-    max-height: 22vh;
+    max-height: 29vh;
   }
 
   .info-item p,
@@ -271,7 +271,7 @@ main {
   }
 
   .bottom-logo {
-    width: 100px;
+    width: 120px;
   }
 }
 
