@@ -93,9 +93,12 @@ main.addEventListener("scroll", () => {
 // nama otomatis
 window.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const nama = urlParams.get("to"); // ambil dari ?to=
+  const nama = urlParams.get("to");
 
   if (nama) {
-    document.getElementById("nama-tamu").textContent = nama;
+    const namaEl = document.getElementById("nama-tamu");
+    const wrapper = document.getElementById("nama-tamu-wrapper");
+    namaEl.textContent = decodeURIComponent(nama);
+    wrapper.style.display = "block";
   }
 });

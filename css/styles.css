@@ -250,6 +250,13 @@ main {
   display: none;
 }
 
+/* nama otomatis custom */
+.nama-tamu {
+  font-weight: bold;
+  color: #ffcc00;
+  text-transform: capitalize;
+}
+
 /* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 1024px) {
   .hero-img {
