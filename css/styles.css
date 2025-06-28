@@ -83,32 +83,15 @@ main {
   background-image: url("../assets/img/bg.jpg");
 }
 
-/* === HERO CONTAINERS === */
-.hero-container,
-.info-block,
-.agenda-block,
-.location-block,
-.thanks-message {
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.hero-img {
-  width: 100%;
-  max-height: 25vh;
-  object-fit: contain;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-/* === PAGE 2 HERO === */
+/* === PAGE 2 HERO OVERLAY === */
 .hero-container {
   position: relative;
+  width: 100%;
+  max-width: 600px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .bg-orang {
@@ -132,30 +115,101 @@ main {
   z-index: 3;
 }
 
-/* === INFO ITEM (Page 3) === */
+/* === HERO GENERAL === */
+.hero-img {
+  width: 100%;
+  height: auto;
+  max-height: 35vh;
+  object-fit: contain;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/* === PAGE 3: INFO === */
+.page-3 {
+  padding: 0;
+  overflow: hidden;
+}
+
+.info-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 16px;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
+}
+
 .info-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.info-item i,
-.address-info i {
+.info-item i {
   font-size: 28px;
   color: #ffcc00;
   margin-bottom: 8px;
 }
 
-.info-item p,
-.address-info p {
-  font-size: 1.1rem;
+.info-item p {
   margin: 0;
-  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
   max-width: 300px;
 }
 
-/* === LOCATION & MAP (Page 5) === */
-iframe {
+/* === PAGE 4: AGENDA === */
+.page-4 {
+  padding: 0;
+  overflow: hidden;
+}
+
+.agenda-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+}
+
+.agenda-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.agenda-list {
+  padding-left: 20px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* === PAGE 5: LOKASI === */
+.location-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 700px;
+}
+
+.location-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.location-block iframe {
   width: 100%;
   max-width: 600px;
   height: 300px;
@@ -171,7 +225,35 @@ iframe {
   gap: 8px;
 }
 
-/* === THANK YOU (Page 6) === */
+.address-info i {
+  font-size: 28px;
+  color: #ffcc00;
+}
+
+.address-info p {
+  margin: 0;
+  font-size: 1.1rem;
+  max-width: 300px;
+  text-align: center;
+}
+
+/* === PAGE 6: THANK YOU === */
+.page-6 {
+  padding: 0;
+  overflow: hidden;
+}
+
+.thanks-message {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 700px;
+}
+
 .thanks-message h3 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -195,7 +277,7 @@ iframe {
   color: #ffcc00;
 }
 
-/* === MUSIC & SCROLL BUTTONS === */
+/* === MUSIK & SCROLL BUTTONS === */
 #music-toggle,
 #scroll-top {
   position: fixed;
@@ -233,9 +315,22 @@ iframe {
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .hero-img {
+    max-height: 30vh;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-img {
-    max-height: 20vh;
+    max-height: 25vh;
+  }
+
+  .info-block,
+  .agenda-block,
+  .location-block,
+  .thanks-message {
+    padding: 24px 16px;
   }
 
   .info-item p,
@@ -254,7 +349,7 @@ iframe {
 
 @media (max-width: 480px) {
   .hero-img {
-    max-height: 18vh;
+    max-height: 20vh;
   }
 
   .info-item i,
