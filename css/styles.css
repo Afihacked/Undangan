@@ -4,10 +4,9 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  background: url("../assets/img/bg_batik.jpg") no-repeat center center fixed;
-  background-size: cover;
   height: 100vh;
-  overflow: hidden; /* supaya scroll hanya di <main> */
+  overflow: hidden; /* agar scroll hanya terjadi di <main> */
+  background: none; /* background ditiadakan karena per section */
 }
 
 /* === HEADING & TEXT === */
@@ -33,7 +32,7 @@ ol {
   margin: auto;
 }
 
-/* === MAIN (SCROLL CONTAINER) === */
+/* === MAIN === */
 main {
   height: 100vh;
   overflow-y: scroll;
@@ -43,7 +42,7 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-/* === PAGE / SECTION === */
+/* === PAGE === */
 .page {
   height: 100vh;
   scroll-snap-align: start;
@@ -53,26 +52,344 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === Custom Background per Section === */
+.page-1 {
+  background-image: url("../assets/img/bg1.jpg");
+}
+
+.page-2 {
+  background-image: url("../assets/img/bg.jpg"); /* atau buatkan bg2.jpg */
+  background-size: cover;
+  background-position: center;
+}
+/* page 2 */
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bg-orang {
+  width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  z-index: 2;
+}
+
+.logo-atas {
+  position: absolute;
+  top: 20px;
+  width: 200px;
+  z-index: 3;
+}
+
+/* page 3 */
+/* Page 3 khusus */
+.page-3 {
+  background-image: url("../assets/img/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  max-height: 40vh;
+  object-fit: contain;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 16px;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-item i {
+  font-size: 28px;
+  color: #ffcc00;
+  margin-bottom: 8px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #fff;
+  max-width: 300px;
+}
+
+/* Logo bawah */
+.bottom-logo {
+  width: 170px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+/* === Responsif === */
+@media (max-width: 768px) {
+  .hero-img {
+    max-height: 30vh;
+  }
+
+  .info-block {
+    gap: 16px;
+  }
+
+  .info-item i {
+    font-size: 24px;
+  }
+
+  .info-item p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .bottom-logo {
+    width: 200px;
+  }
+}
+
+.page-4 {
+  background-image: url("../assets/img/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  max-height: 25vh;
+  object-fit: contain;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.agenda-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+.agenda-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.agenda-list {
+  padding-left: 20px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.bottom-logo {
+  width: 140px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.page-5 {
+  background-image: url("../assets/img/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  max-height: 25vh;
+  object-fit: contain;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Konten tengah */
+.location-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+.location-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #ffcc00;
+}
+
+.location-block iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+/* Alamat */
+.address-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.address-info i {
+  font-size: 28px;
+  color: #ffcc00;
+}
+
+.address-info p {
+  margin: 0;
+  font-size: 1.1rem;
+  max-width: 300px;
+  text-align: center;
+}
+
+.page-6 {
+  background-image: url("../assets/img/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.thanks-message {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+.thanks-message h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.thanks-message p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.hero-img {
+  width: 100%;
+  max-height: 25vh;
+  object-fit: contain;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.bottom-logo {
+  width: 140px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
 /* === GALERI === */
-.gallery {
+/* .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
   max-width: 600px;
   width: 100%;
   margin-top: 20px;
-}
+} */
 
-.gallery img {
+/* .gallery img {
   width: 100%;
   border-radius: 10px;
   border: 2px solid #fff;
-}
+} */
 
 /* === IFRAME (MAP) === */
 iframe {
@@ -83,7 +400,7 @@ iframe {
   border: none;
 }
 
-/* === FORM RSVP === */
+/* === FORM RSVP ===
 form {
   width: 100%;
   max-width: 600px;
@@ -123,14 +440,25 @@ form button {
   cursor: pointer;
 }
 
+/* === Responsive === */
+@media screen and (max-width: 480px) {
+  form {
+    padding: 0 10px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 0.95rem;
+  }
+}
+*/
 /* === Countdown === */
 #countdown {
   font-size: 1.4rem;
-  margin-top: 10px;
   color: #ffcc00;
 }
 
-/* === Tombol Musik & Scroll-to-top === */
+/* === Musik & Scroll Top Buttons === */
 #music-toggle,
 #scroll-top {
   position: fixed;
@@ -150,14 +478,12 @@ form button {
   transition: all 0.3s ease;
 }
 
-/* Hover efek */
 #music-toggle:hover,
 #scroll-top:hover {
   background: #fff8cc;
   transform: scale(1.1);
 }
 
-/* Posisi */
 #music-toggle {
   bottom: 20px;
   right: 20px;
@@ -167,16 +493,4 @@ form button {
   bottom: 70px;
   right: 20px;
   display: none;
-}
-
-/* === Responsive === */
-@media screen and (max-width: 480px) {
-  form {
-    padding: 0 10px;
-  }
-
-  form input,
-  form textarea {
-    font-size: 0.95rem;
-  }
 }

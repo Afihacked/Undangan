@@ -21,31 +21,19 @@ setInterval(() => {
   countdownEl.innerHTML = `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
 }, 1000);
 
-// === Musik Autoplay + Toggle ===
+// === Musik Manual Play + Toggle ===
 const music = document.getElementById("bg-music");
 const toggleBtn = document.getElementById("music-toggle");
-let isPlaying = true;
-
-// Coba autoplay saat halaman load
-window.addEventListener("load", () => {
-  music.play().catch(() => {
-    // Jika autoplay diblokir, aktifkan saat interaksi pertama
-    const enableAudio = () => {
-      music.play().catch(() => {});
-      document.removeEventListener("click", enableAudio);
-      document.removeEventListener("touchstart", enableAudio);
-    };
-    document.addEventListener("click", enableAudio);
-    document.addEventListener("touchstart", enableAudio);
-  });
-});
+let isPlaying = false; // default: belum diputar
 
 toggleBtn.addEventListener("click", () => {
   if (isPlaying) {
     music.pause();
     toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
   } else {
-    music.play();
+    music.play().catch((err) => {
+      console.warn("Gagal memutar musik:", err);
+    });
     toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
   }
   isPlaying = !isPlaying;
