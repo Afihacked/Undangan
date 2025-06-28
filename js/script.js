@@ -29,7 +29,11 @@ let isPlaying = true;
 // Coba autoplay saat halaman load
 window.addEventListener("load", () => {
   music.play().catch(() => {
+<<<<<<< HEAD
     // Jika autoplay diblokir, aktifkan saat interaksi pertama
+=======
+    // Jika autoplay diblokir, coba setelah klik
+>>>>>>> c2487fca94fec064b48447b1da65d5d27e5ea523
     const enableAudio = () => {
       music.play().catch(() => {});
       document.removeEventListener("click", enableAudio);
@@ -72,6 +76,7 @@ main.addEventListener("scroll", () => {
 
 scrollBtn.addEventListener("click", () => {
   main.scrollTo({ top: 0, behavior: "smooth" });
+<<<<<<< HEAD
 });
 
 // === Auto Snap ke Halaman Terdekat Saat Scroll Berhenti ===
@@ -100,4 +105,6 @@ main.addEventListener("scroll", () => {
       });
     }
   }, 80);
+=======
+>>>>>>> c2487fca94fec064b48447b1da65d5d27e5ea523
 });
