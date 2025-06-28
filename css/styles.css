@@ -254,11 +254,8 @@ main {
 .nama-tamu {
   font-weight: bold;
   color: #ffcc00;
-  text-transform: capitalize;
-}
-
-span {
-  font-size: 1, 4rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 /* === RESPONSIVE ADJUSTMENTS === */
