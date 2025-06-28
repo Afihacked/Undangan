@@ -31,7 +31,7 @@ ol {
   margin: auto;
 }
 
-/* === MAIN SCROLLING === */
+/* === MAIN SCROLL === */
 main {
   height: 100vh;
   overflow-y: scroll;
@@ -41,7 +41,7 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-/* === SECTION / PAGE === */
+/* === PAGE === */
 .page {
   height: 100vh;
   scroll-snap-align: start;
@@ -70,7 +70,7 @@ main {
   z-index: 1;
 }
 
-/* === PAGE BACKGROUNDS === */
+/* === BACKGROUND per PAGE === */
 .page-1,
 .page-3,
 .page-4,
@@ -78,26 +78,32 @@ main {
 .page-6 {
   background-image: url("../assets/img/bg1.jpg");
 }
-
 .page-2 {
   background-image: url("../assets/img/bg.jpg");
 }
 
-/* === PAGE 2 HERO OVERLAY === */
+/* === HERO === */
+.hero-img {
+  width: 100%;
+  max-height: 30vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* === PAGE 2 Custom Hero Overlay === */
 .hero-container {
   position: relative;
   width: 100%;
   max-width: 600px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .bg-orang {
   width: 100%;
-  max-height: 100vh;
   object-fit: contain;
+  max-height: 100vh;
   z-index: 1;
 }
 
@@ -111,102 +117,72 @@ main {
 .logo-atas {
   position: absolute;
   top: 20px;
-  width: 200px;
+  width: 180px;
   z-index: 3;
 }
 
-/* === HERO GENERAL === */
-.hero-img {
-  width: 100%;
-  height: auto;
-  max-height: 35vh;
-  object-fit: contain;
-  margin: 0 auto;
-  flex-shrink: 0;
-}
-
 /* === PAGE 3: INFO === */
-.page-3 {
+.page-3,
+.page-4,
+.page-5,
+.page-6 {
   padding: 0;
   overflow: hidden;
 }
 
-.info-block {
+.info-block,
+.agenda-block,
+.location-block,
+.thanks-message {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 20px 16px;
+  padding: 30px 20px;
   justify-content: center;
   text-align: center;
-  max-width: 100%;
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
 }
 
-.info-item {
+.info-item,
+.address-info {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.info-item i {
+.info-item i,
+.address-info i {
   font-size: 28px;
   color: #ffcc00;
   margin-bottom: 8px;
 }
 
-.info-item p {
+.info-item p,
+.address-info p {
   margin: 0;
   font-size: 1.1rem;
   color: #fff;
   max-width: 300px;
-}
-
-/* === PAGE 4: AGENDA === */
-.page-4 {
-  padding: 0;
-  overflow: hidden;
-}
-
-.agenda-block {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 20px;
   text-align: center;
-  width: 100%;
-  max-width: 700px;
 }
 
-.agenda-block h3 {
+.agenda-block h3,
+.location-block h3,
+.thanks-message h3 {
   font-size: 1.8rem;
   margin-bottom: 20px;
+  color: #ffcc00;
 }
 
 .agenda-list {
   padding-left: 20px;
   text-align: left;
   font-size: 1.1rem;
-  line-height: 1.6;
   color: #fff;
-}
-
-/* === PAGE 5: LOKASI === */
-.location-block {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px 20px;
-  text-align: center;
-  max-width: 700px;
-}
-
-.location-block h3 {
-  font-size: 1.8rem;
-  margin-bottom: 16px;
+  line-height: 1.6;
 }
 
 .location-block iframe {
@@ -218,53 +194,13 @@ main {
   margin-bottom: 20px;
 }
 
-.address-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.address-info i {
-  font-size: 28px;
-  color: #ffcc00;
-}
-
-.address-info p {
-  margin: 0;
-  font-size: 1.1rem;
-  max-width: 300px;
-  text-align: center;
-}
-
-/* === PAGE 6: THANK YOU === */
-.page-6 {
-  padding: 0;
-  overflow: hidden;
-}
-
-.thanks-message {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 20px;
-  text-align: center;
-  max-width: 700px;
-}
-
-.thanks-message h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
+/* === THANK YOU PAGE === */
 .thanks-message p {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-/* === LOGO === */
+/* === LOGO BAWAH === */
 .bottom-logo {
   width: 140px;
   margin-bottom: 20px;
@@ -277,12 +213,12 @@ main {
   color: #ffcc00;
 }
 
-/* === MUSIK & SCROLL BUTTONS === */
+/* === BUTTONS === */
 #music-toggle,
 #scroll-top {
   position: fixed;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   background: #ffcc00;
   color: #000;
   border: none;
@@ -314,23 +250,16 @@ main {
   display: none;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 1024px) {
   .hero-img {
-    max-height: 30vh;
+    max-height: 26vh;
   }
 }
 
 @media (max-width: 768px) {
   .hero-img {
-    max-height: 25vh;
-  }
-
-  .info-block,
-  .agenda-block,
-  .location-block,
-  .thanks-message {
-    padding: 24px 16px;
+    max-height: 22vh;
   }
 
   .info-item p,
@@ -343,7 +272,6 @@ main {
 
   .bottom-logo {
     width: 100px;
-    margin-bottom: 16px;
   }
 }
 
