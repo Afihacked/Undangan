@@ -1,3 +1,4 @@
+/* === BODY === */
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
@@ -5,11 +6,11 @@ body {
   color: #fff;
   background: url("../assets/img/bg_batik.jpg") no-repeat center center fixed;
   background-size: cover;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   height: 100vh;
+  overflow: hidden; /* supaya scroll hanya di <main> */
 }
 
+/* === HEADING & TEXT === */
 h1,
 h2,
 h3 {
@@ -32,10 +33,17 @@ ol {
   margin: auto;
 }
 
+/* === MAIN (SCROLL CONTAINER) === */
 main {
-  height: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* === PAGE / SECTION === */
 .page {
   height: 100vh;
   scroll-snap-align: start;
@@ -47,8 +55,10 @@ main {
   text-align: center;
   backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
 }
 
+/* === GALERI === */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -64,6 +74,7 @@ main {
   border: 2px solid #fff;
 }
 
+/* === IFRAME (MAP) === */
 iframe {
   width: 100%;
   max-width: 600px;
@@ -72,9 +83,10 @@ iframe {
   border: none;
 }
 
+/* === FORM RSVP === */
 form {
   width: 100%;
-  max-width: 600px; /* diperlebar */
+  max-width: 600px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -111,14 +123,14 @@ form button {
   cursor: pointer;
 }
 
-/* Countdown */
+/* === Countdown === */
 #countdown {
   font-size: 1.4rem;
   margin-top: 10px;
   color: #ffcc00;
 }
 
-/* Gaya Umum untuk Kedua Tombol */
+/* === Tombol Musik & Scroll-to-top === */
 #music-toggle,
 #scroll-top {
   position: fixed;
@@ -154,14 +166,15 @@ form button {
 #scroll-top {
   bottom: 70px;
   right: 20px;
-  display: none; /* disembunyikan awalnya */
+  display: none;
 }
 
-/* responsif */
+/* === Responsive === */
 @media screen and (max-width: 480px) {
   form {
     padding: 0 10px;
   }
+
   form input,
   form textarea {
     font-size: 0.95rem;

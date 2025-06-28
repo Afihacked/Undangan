@@ -1,23 +1,27 @@
-// Countdown
+// === Countdown ===
 const countdownEl = document.getElementById("countdown");
 const eventDate = new Date("2025-07-12T19:00:00").getTime();
+
 setInterval(() => {
   const now = new Date().getTime();
   const distance = eventDate - now;
+
   if (distance < 0) {
     countdownEl.innerHTML = "Acara sedang berlangsung atau telah selesai.";
     return;
   }
+
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor(
     (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
   );
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
   countdownEl.innerHTML = `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
 }, 1000);
 
-// Musik Toggle + Autoplay
+// === Musik Autoplay + Toggle ===
 const music = document.getElementById("bg-music");
 const toggleBtn = document.getElementById("music-toggle");
 let isPlaying = true;
@@ -25,7 +29,7 @@ let isPlaying = true;
 // Coba autoplay saat halaman load
 window.addEventListener("load", () => {
   music.play().catch(() => {
-    // Jika autoplay diblokir, akan coba setelah klik
+    // Jika autoplay diblokir, aktifkan saat interaksi pertama
     const enableAudio = () => {
       music.play().catch(() => {});
       document.removeEventListener("click", enableAudio);
@@ -47,18 +51,19 @@ toggleBtn.addEventListener("click", () => {
   isPlaying = !isPlaying;
 });
 
-// Dummy RSVP
+// === Dummy RSVP ===
 function submitForm(e) {
   e.preventDefault();
   alert("Terima kasih atas konfirmasinya!");
   e.target.reset();
 }
 
-// Scroll to top
+// === Scroll to Top untuk elemen <main> ===
 const scrollBtn = document.getElementById("scroll-top");
+const main = document.querySelector("main");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > window.innerHeight * 0.9) {
+main.addEventListener("scroll", () => {
+  if (main.scrollTop > window.innerHeight * 0.5) {
     scrollBtn.style.display = "flex";
   } else {
     scrollBtn.style.display = "none";
@@ -66,5 +71,33 @@ window.addEventListener("scroll", () => {
 });
 
 scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  main.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// === Auto Snap ke Halaman Terdekat Saat Scroll Berhenti ===
+const pages = document.querySelectorAll(".page");
+let isScrolling;
+
+main.addEventListener("scroll", () => {
+  clearTimeout(isScrolling);
+
+  isScrolling = setTimeout(() => {
+    let closest = null;
+    let closestDistance = Infinity;
+
+    pages.forEach((page) => {
+      const offset = Math.abs(page.offsetTop - main.scrollTop);
+      if (offset < closestDistance) {
+        closest = page;
+        closestDistance = offset;
+      }
+    });
+
+    if (closest) {
+      main.scrollTo({
+        top: closest.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }, 80);
 });
