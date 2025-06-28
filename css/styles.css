@@ -1,15 +1,14 @@
-/* === BODY === */
+/* === BASE === */
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   color: #fff;
   height: 100vh;
-  overflow: hidden; /* agar scroll hanya terjadi di <main> */
-  background: none; /* background ditiadakan karena per section */
+  overflow: hidden;
+  background: none;
 }
 
-/* === HEADING & TEXT === */
 h1,
 h2,
 h3 {
@@ -32,7 +31,7 @@ ol {
   margin: auto;
 }
 
-/* === MAIN === */
+/* === MAIN SCROLLING === */
 main {
   height: 100vh;
   overflow-y: scroll;
@@ -42,7 +41,7 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-/* === PAGE === */
+/* === SECTION / PAGE === */
 .page {
   height: 100vh;
   scroll-snap-align: start;
@@ -66,28 +65,29 @@ main {
   background: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
-
 .page > * {
   position: relative;
   z-index: 1;
 }
 
-/* === Custom Background per Section === */
-.page-1 {
+/* === PAGE BACKGROUNDS === */
+.page-1,
+.page-3,
+.page-4,
+.page-5,
+.page-6 {
   background-image: url("../assets/img/bg1.jpg");
 }
 
 .page-2 {
-  background-image: url("../assets/img/bg.jpg"); /* atau buatkan bg2.jpg */
-  background-size: cover;
-  background-position: center;
+  background-image: url("../assets/img/bg.jpg");
 }
-/* page 2 */
+
+/* === PAGE 2 HERO OVERLAY === */
 .hero-container {
   position: relative;
   width: 100%;
   max-width: 600px;
-  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +103,7 @@ main {
 
 .hero-overlay {
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   width: 100%;
   z-index: 2;
 }
@@ -115,40 +115,31 @@ main {
   z-index: 3;
 }
 
-/* page 3 */
-/* Page 3 khusus */
-.page-3 {
-  background-image: url("../assets/img/bg1.jpg");
-  background-size: cover;
-  background-position: center;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0;
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
+/* === HERO GENERAL === */
 .hero-img {
   width: 100%;
-  max-height: 40vh;
+  max-height: 25vh;
   object-fit: contain;
   margin: 0;
   flex-shrink: 0;
 }
 
+/* === PAGE 3: INFO === */
+.page-3 {
+  padding: 0;
+  overflow: hidden;
+}
+
 .info-block {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 20px 16px;
-  flex-grow: 1;
   justify-content: center;
   text-align: center;
   max-width: 100%;
-  box-sizing: border-box;
 }
 
 .info-item {
@@ -170,56 +161,10 @@ main {
   max-width: 300px;
 }
 
-/* Logo bawah */
-.bottom-logo {
-  width: 170px;
-  margin-bottom: 10px;
-  flex-shrink: 0;
-}
-
-/* === Responsif === */
-@media (max-width: 768px) {
-  .hero-img {
-    max-height: 30vh;
-  }
-
-  .info-block {
-    gap: 16px;
-  }
-
-  .info-item i {
-    font-size: 24px;
-  }
-
-  .info-item p {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  .bottom-logo {
-    width: 200px;
-  }
-}
-
+/* === PAGE 4: AGENDA === */
 .page-4 {
-  background-image: url("../assets/img/bg1.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   padding: 0;
-  height: 100vh;
   overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  max-height: 25vh;
-  object-fit: contain;
-  margin: 0;
-  flex-shrink: 0;
 }
 
 .agenda-block {
@@ -232,13 +177,11 @@ main {
   text-align: center;
   width: 100%;
   max-width: 700px;
-  box-sizing: border-box;
 }
 
 .agenda-block h3 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #ffcc00;
 }
 
 .agenda-list {
@@ -249,34 +192,7 @@ main {
   color: #fff;
 }
 
-.bottom-logo {
-  width: 140px;
-  margin-bottom: 20px;
-  flex-shrink: 0;
-}
-
-.page-5 {
-  background-image: url("../assets/img/bg1.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  max-height: 25vh;
-  object-fit: contain;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-/* Konten tengah */
+/* === PAGE 5: LOKASI === */
 .location-block {
   flex-grow: 1;
   display: flex;
@@ -285,13 +201,11 @@ main {
   padding: 30px 20px;
   text-align: center;
   max-width: 700px;
-  box-sizing: border-box;
 }
 
 .location-block h3 {
   font-size: 1.8rem;
   margin-bottom: 16px;
-  color: #ffcc00;
 }
 
 .location-block iframe {
@@ -303,13 +217,11 @@ main {
   margin-bottom: 20px;
 }
 
-/* Alamat */
 .address-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: #fff;
 }
 
 .address-info i {
@@ -324,16 +236,9 @@ main {
   text-align: center;
 }
 
+/* === PAGE 6: THANK YOU === */
 .page-6 {
-  background-image: url("../assets/img/bg1.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   padding: 0;
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -346,119 +251,32 @@ main {
   padding: 30px 20px;
   text-align: center;
   max-width: 700px;
-  box-sizing: border-box;
 }
 
 .thanks-message h3 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #ffcc00;
 }
 
 .thanks-message p {
   font-size: 1.2rem;
-  color: #fff;
   margin-bottom: 10px;
 }
 
-.hero-img {
-  width: 100%;
-  max-height: 25vh;
-  object-fit: contain;
-  margin: 0;
-  flex-shrink: 0;
-}
-
+/* === LOGO === */
 .bottom-logo {
   width: 140px;
   margin-bottom: 20px;
   flex-shrink: 0;
 }
 
-/* === GALERI === */
-/* .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  max-width: 600px;
-  width: 100%;
-  margin-top: 20px;
-} */
-
-/* .gallery img {
-  width: 100%;
-  border-radius: 10px;
-  border: 2px solid #fff;
-} */
-
-/* === IFRAME (MAP) === */
-iframe {
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  border-radius: 12px;
-  border: none;
-}
-
-/* === FORM RSVP ===
-form {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 20px;
-}
-
-form input,
-form textarea {
-  padding: 14px;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  background: #fff;
-  color: #000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-form button {
-  align-self: center;
-  padding: 12px 28px;
-  background: #ffcc00;
-  color: #000;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-/* === Responsive === */
-@media screen and (max-width: 480px) {
-  form {
-    padding: 0 10px;
-  }
-
-  form input,
-  form textarea {
-    font-size: 0.95rem;
-  }
-}
-*/
-/* === Countdown === */
+/* === COUNTDOWN === */
 #countdown {
   font-size: 1.4rem;
   color: #ffcc00;
 }
 
-/* === Musik & Scroll Top Buttons === */
+/* === MUSIK & SCROLL BUTTONS === */
 #music-toggle,
 #scroll-top {
   position: fixed;
@@ -493,4 +311,50 @@ form button {
   bottom: 70px;
   right: 20px;
   display: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero-img {
+    max-height: 20vh;
+  }
+
+  .info-block,
+  .agenda-block,
+  .location-block,
+  .thanks-message {
+    padding: 24px 16px;
+  }
+
+  .info-item p,
+  .agenda-list,
+  .address-info p,
+  .thanks-message p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .bottom-logo {
+    width: 100px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-img {
+    max-height: 18vh;
+  }
+
+  .info-item i,
+  .address-info i {
+    font-size: 22px;
+  }
+
+  .thanks-message h3 {
+    font-size: 1.5rem;
+  }
+
+  .thanks-message p {
+    font-size: 1rem;
+  }
 }
