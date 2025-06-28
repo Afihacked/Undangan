@@ -257,6 +257,13 @@ main {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
+p {
+  margin: 0.2em 0;
+}
+
+#nama-tamu-wrapper {
+  margin-top: 0.2em;
+}
 
 /* === RESPONSIVE ADJUSTMENTS === */
 @media (max-width: 1024px) {
