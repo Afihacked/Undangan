@@ -217,6 +217,44 @@ main {
   z-index: 3;
 }
 
+/* === INFO BLOCK === */
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* jarak antar info-item */
+  padding-top: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-item i {
+  font-size: 80px; /* ikon lebih besar */
+  color: #ffcc00;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 1.4rem;
+  max-width: 90%;
+  color: #fff;
+  text-align: center;
+}
+
+/* === COUNTDOWN (tengah di atas) === */
+#countdown {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
 /* === CONTENT BLOCK === */
 .content-middle,
 .info-block,
@@ -354,6 +392,7 @@ p {
 @media (max-width: 768px) {
   .hero-img {
     max-height: 24vh;
+    margin-top: -8vh;
   }
 
   .bottom-logo {
@@ -362,14 +401,29 @@ p {
 
   .info-item i,
   .address-info i {
-    font-size: 24px;
+    font-size: 38px;
+  }
+
+  .info-block {
+    gap: 25px;
   }
 
   .info-item p,
   .address-info p,
   .agenda-list,
   .thanks-message p {
-    font-size: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .agenda-list li {
+    font-size: 1.3rem;
+  }
+  .agenda-block {
+    font-size: 1.5rem;
+  }
+
+  .location-block {
+    font-size: 1.5rem;
   }
 
   .thanks-message h3 {
