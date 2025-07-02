@@ -102,3 +102,14 @@ window.addEventListener("DOMContentLoaded", () => {
     wrapper.style.display = "block";
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("buka-undangan");
+  const main = document.querySelector("main");
+
+  if (button) {
+    button.addEventListener("click", () => {
+      main.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+    });
+  }
+});

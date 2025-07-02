@@ -11,7 +11,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: "Playfair Display", serif;
   color: #ffcc00;
   margin-bottom: 10px;
@@ -41,21 +42,84 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-/* === PAGE === */
+/* === PAGE BASE === */
+/* === KHUSUS PAGE 1 === */
+.page-1 {
+  justify-content: flex-start;
+  padding-top: 80px;
+}
+
+/* Logo atas di halaman 1 */
+.page-1 .hero-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -80px;
+}
+/* Judul UNDANGAN tetap di tengah tapi beri margin bawah */
+.page-1 h1 {
+  margin-bottom: -20px;
+  font-size: 2rem;
+}
+.page-1 .logo-img {
+  width: 200px;
+  margin-bottom: -20vh;
+}
+
+.page-1 .content-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Hero utama di halaman 1 (diperbesar) */
+.page-1 .hero-img {
+  width: 100%;
+  max-width: 480px;
+  max-height: 34vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* === TOMBOL AKSI === */
+.tombol-aksi {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#buka-undangan {
+  background-color: #ffcc00;
+  color: #000;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#buka-undangan:hover {
+  background-color: #fff2a8;
+  transform: scale(1.05);
+}
+
 .page {
   height: 100vh;
   scroll-snap-align: start;
-  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
   position: relative;
-  box-sizing: border-box;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  box-sizing: border-box;
 }
 
 .page::before {
@@ -65,12 +129,18 @@ main {
   background: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
+
 .page > * {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  text-align: center;
 }
 
-/* === BACKGROUND per PAGE === */
+/* === PAGE BACKGROUNDS === */
 .page-1,
 .page-3,
 .page-4,
@@ -78,32 +148,58 @@ main {
 .page-6 {
   background-image: url("../assets/img/bg1.jpg");
 }
+
 .page-2 {
   background-image: url("../assets/img/bg.jpg");
 }
 
-/* === HERO === */
-.hero-img {
-  width: 100%;
-  max-height: 32vh;
-  object-fit: contain;
+/* === HERO SECTION === */
+.hero-top {
+  padding: 10px 0 0;
   margin: 0 auto;
-}
-
-/* === PAGE 2 Custom Hero Overlay === */
-.hero-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.hero-img {
+  width: 100%;
+  max-height: 28vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.logo-img {
+  width: 160px;
+  margin-bottom: 10px;
+}
+
+.logo-bottom {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.bottom-logo {
+  width: 140px;
+}
+
+/* === HERO OVERLAY (PAGE 2) === */
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .bg-orang {
   width: 100%;
-  object-fit: contain;
   max-height: 100vh;
+  object-fit: contain;
   z-index: 1;
 }
 
@@ -117,19 +213,12 @@ main {
 .logo-atas {
   position: absolute;
   top: 20px;
-  width: 180px;
+  width: 160px;
   z-index: 3;
 }
 
-/* === PAGE 3: INFO === */
-.page-3,
-.page-4,
-.page-5,
-.page-6 {
-  padding: 0;
-  overflow: hidden;
-}
-
+/* === CONTENT BLOCK === */
+.content-middle,
 .info-block,
 .agenda-block,
 .location-block,
@@ -137,13 +226,17 @@ main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 30px 20px;
   justify-content: center;
-  text-align: center;
-  width: 100%;
-  max-width: 700px;
+  align-items: center;
+  padding: 0 20px;
   box-sizing: border-box;
+  width: 100%;
+}
+
+/* === SUB CONTENT === */
+.info-block,
+.address-info {
+  gap: 16px;
 }
 
 .info-item,
@@ -164,17 +257,9 @@ main {
 .address-info p {
   margin: 0;
   font-size: 1.1rem;
-  color: #fff;
   max-width: 300px;
   text-align: center;
-}
-
-.agenda-block h3,
-.location-block h3,
-.thanks-message h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #ffcc00;
+  color: #fff;
 }
 
 .agenda-list {
@@ -185,32 +270,47 @@ main {
   line-height: 1.6;
 }
 
-.location-block iframe {
+/* === MAP === */
+iframe {
   width: 100%;
   max-width: 600px;
   height: 300px;
   border-radius: 12px;
   border: none;
+  margin-top: 20px;
+}
+
+/* === THANK YOU === */
+.thanks-message h3 {
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-/* === THANK YOU PAGE === */
 .thanks-message p {
   font-size: 1.2rem;
   margin-bottom: 10px;
-}
-
-/* === LOGO BAWAH === */
-.bottom-logo {
-  width: 140px;
-  margin-bottom: 20px;
-  flex-shrink: 0;
 }
 
 /* === COUNTDOWN === */
 #countdown {
   font-size: 1.4rem;
   color: #ffcc00;
+}
+
+/* === GUEST NAME === */
+.nama-tamu {
+  font-weight: bold;
+  color: #ffcc00;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+#nama-tamu-wrapper {
+  margin-top: 0.2em;
+}
+
+p {
+  margin: 0.2em 0;
 }
 
 /* === BUTTONS === */
@@ -250,43 +350,30 @@ main {
   display: none;
 }
 
-/* nama otomatis custom */
-.nama-tamu {
-  font-weight: bold;
-  color: #ffcc00;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-}
-p {
-  margin: 0.2em 0;
-}
-
-#nama-tamu-wrapper {
-  margin-top: 0.2em;
-}
-
-/* === RESPONSIVE ADJUSTMENTS === */
-@media (max-width: 1024px) {
-  .hero-img {
-    max-height: 26vh;
-  }
-}
-
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .hero-img {
-    max-height: 29vh;
-  }
-
-  .info-item p,
-  .agenda-list,
-  .address-info p,
-  .thanks-message p {
-    font-size: 1rem;
-    max-width: 100%;
+    max-height: 24vh;
   }
 
   .bottom-logo {
     width: 120px;
+  }
+
+  .info-item i,
+  .address-info i {
+    font-size: 24px;
+  }
+
+  .info-item p,
+  .address-info p,
+  .agenda-list,
+  .thanks-message p {
+    font-size: 1rem;
+  }
+
+  .thanks-message h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -295,16 +382,16 @@ p {
     max-height: 20vh;
   }
 
+  .logo-img {
+    width: 140px;
+  }
+
+  .bottom-logo {
+    width: 100px;
+  }
+
   .info-item i,
   .address-info i {
-    font-size: 22px;
-  }
-
-  .thanks-message h3 {
-    font-size: 1.5rem;
-  }
-
-  .thanks-message p {
-    font-size: 1rem;
+    font-size: 20px;
   }
 }
