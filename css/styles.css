@@ -85,7 +85,7 @@ main {
 /* === HERO === */
 .hero-img {
   width: 100%;
-  max-height: 30vh;
+  max-height: 32vh;
   object-fit: contain;
   margin: 0 auto;
 }
