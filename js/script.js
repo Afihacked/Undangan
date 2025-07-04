@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Countdown
+  // === Countdown ===
   const countdownEl = document.getElementById("countdown");
   const eventDate = new Date("2025-07-12T19:00:00").getTime();
   setInterval(() => {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     countdownEl.innerHTML = `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
   }, 1000);
 
-  // Musik toggle
+  // === Musik toggle ===
   const music = document.getElementById("bg-music");
   const toggleBtn = document.getElementById("music-toggle");
   let isMusicPlaying = false;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll ke atas tombol
+  // === Scroll ke atas tombol ===
   const scrollBtn = document.getElementById("scroll-top");
   const main = document.querySelector("main");
   main.addEventListener("scroll", () => {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     main.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // Buka undangan
+  // === Buka undangan ===
   const bukaBtn = document.getElementById("buka-undangan");
   if (bukaBtn) {
     bukaBtn.addEventListener("click", () => {
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Nama tamu
+  // === Nama tamu ===
   const urlParams = new URLSearchParams(window.location.search);
   const nama = urlParams.get("to");
   if (nama) {
@@ -71,6 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let intervalId = null;
   let isPlaying = false;
 
+  function getCurrentSectionIndex() {
+    const scrollTop = main.scrollTop;
+    let index = 0;
+    for (let i = 0; i < sections.length; i++) {
+      if (scrollTop >= sections[i].offsetTop - 5) {
+        index = i;
+      }
+    }
+    return index;
+  }
+
   function stopAutoScroll() {
     clearInterval(intervalId);
     isPlaying = false;
@@ -78,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function startAutoScroll() {
+    currentIndex = getCurrentSectionIndex();
     isPlaying = true;
     playButton.innerHTML = '<i class="fas fa-pause"></i>';
 
@@ -90,40 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       } else {
         stopAutoScroll();
-        currentIndex = 0;
       }
     }, 3000);
   }
 
   if (playButton) {
     playButton.addEventListener("click", () => {
-      if (isPlaying) return;
-
-      Swal.fire({
-        title: "Aktifkan Mode Otomatis?",
-        text: "Halaman akan bergulir otomatis setiap 3 detik.",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonText: "Mulai",
-        cancelButtonText: "Batal",
-        confirmButtonColor: "#facc15",
-        cancelButtonColor: "#999",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Hitung index saat ini berdasarkan scroll
-          currentIndex = Array.from(sections).findIndex(
-            (section) => section.offsetTop >= main.scrollTop - 10
-          );
-          startAutoScroll();
-        }
-      });
-    });
-
-    // === Hentikan auto scroll jika user scroll/touch manual ===
-    ["wheel", "touchstart", "keydown"].forEach((eventName) => {
-      main.addEventListener(eventName, () => {
-        if (isPlaying) stopAutoScroll();
-      });
+      if (isPlaying) {
+        stopAutoScroll(); // toggle to stop
+      } else {
+        Swal.fire({
+          title: "Aktifkan Mode Otomatis?",
+          text: "Halaman akan bergulir otomatis setiap 3 detik.",
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonText: "Mulai",
+          cancelButtonText: "Batal",
+          confirmButtonColor: "#facc15",
+          cancelButtonColor: "#999",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            startAutoScroll();
+          }
+        });
+      }
     });
   }
+
+  // === Stop auto-scroll jika pengguna scroll manual ===
+  ["wheel", "touchstart", "keydown"].forEach((eventName) => {
+    main.addEventListener(eventName, () => {
+      if (isPlaying) stopAutoScroll();
+    });
+  });
 });

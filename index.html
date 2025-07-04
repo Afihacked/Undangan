@@ -13,12 +13,11 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <style>
       body {
         font-family: "Open Sans", sans-serif;
+        -webkit-overflow-scrolling: touch;
       }
       h1,
       h2,
@@ -28,15 +27,18 @@
       }
     </style>
   </head>
+
   <body class="text-white h-screen overflow-hidden">
-    <main class="h-screen overflow-y-scroll snap-y snap-mandatory">
+    <main
+      class="h-screen overflow-y-scroll snap-y snap-mandatory overscroll-contain"
+    >
       <!-- Page 1 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col items-center pt-20"
+        class="relative min-h-screen snap-start bg-cover bg-center flex flex-col items-center pt-20"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50"></div>
-        <div class="relative z-10 flex flex-col items-center -mt-16">
+        <div class="relative z-10 flex flex-col items-center -mt-16 px-4">
           <img src="assets/img/logo.png" alt="Logo" class="w-48 mb-6" />
           <h1 class="text-yellow-400 text-2xl mb-4 tracking-widest">
             U N D A N G A N
@@ -46,7 +48,7 @@
             alt="Hero"
             class="w-full max-w-md max-h-[34vh] object-contain mb-4"
           />
-          <p class="text-center">
+          <p class="text-center leading-relaxed">
             Kepada Yth. Bapak/Ibu/Saudara/i<br /><strong>Tamu Undangan</strong>
           </p>
           <p id="nama-tamu-wrapper" class="hidden mt-1">
@@ -68,48 +70,50 @@
 
       <!-- Page 2 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center"
+        class="relative min-h-screen snap-start bg-cover bg-center flex items-end justify-center"
         style="background-image: url('assets/img/bg.jpg')"
       >
+        <!-- Overlay hitam -->
         <div class="absolute inset-0 bg-black/50 z-0"></div>
-        <div
-          class="relative h-full max-w-xl mx-auto flex flex-col items-center justify-center z-10"
-        >
+
+        <!-- Logo atas -->
+        <img
+          src="assets/img/logo.png"
+          alt="Logo"
+          class="absolute top-4 left-1/2 -translate-x-1/2 w-32 z-30"
+        />
+
+        <!-- Wrapper gambar orang dan hero overlay -->
+        <div class="relative z-10 w-full max-w-md px-4 pb-[6vh]">
+          <!-- Orang -->
           <img
             src="assets/img/orang.png"
             alt="Orang"
-            class="w-full max-h-full object-contain z-10"
+            class="w-full max-w-full max-h-[70vh] object-contain relative z-10"
           />
+
+          <!-- Hero menimpa bagian bawah orang -->
           <img
             src="assets/img/hero.png"
             alt="Hero"
-            class="absolute bottom-0 w-full z-20"
-          />
-          <img
-            src="assets/img/logo.png"
-            alt="Logo"
-            class="absolute top-5 w-40 z-30"
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-h-[22vh] object-contain z-20"
           />
         </div>
       </section>
 
       <!-- Page 3 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col justify-between"
+        class="relative min-h-screen snap-start bg-cover bg-center flex flex-col justify-between"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50 z-0"></div>
-
-        <!-- Hero -->
-        <div class="relative z-10 pt-4">
+        <div class="relative z-10 pt-4 px-4">
           <img
             src="assets/img/hero.png"
             alt="Hero"
             class="w-full max-h-[28vh] object-contain mx-auto"
           />
         </div>
-
-        <!-- Konten -->
         <div
           class="relative z-10 flex flex-col items-center text-center px-4 flex-grow justify-start mt-2"
         >
@@ -132,35 +136,29 @@
             </div>
           </div>
         </div>
-
-        <!-- Logo bawah -->
-        <div class="relative z-10 pb-6 flex justify-center">
+        <div class="relative z-10 pb-6 flex justify-center px-4">
           <img src="assets/img/logo.png" alt="Logo" class="w-32" />
         </div>
       </section>
 
       <!-- Page 4 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col justify-between overflow-hidden"
+        class="relative min-h-screen snap-start bg-cover bg-center flex flex-col justify-between"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50 z-0"></div>
-
-        <!-- Hero (nempel atas) -->
-        <div class="relative z-10 w-full max-w-[700px] mx-auto">
+        <div class="relative z-10 w-full max-w-[700px] mx-auto px-4 pt-4">
           <img
             src="assets/img/hero.png"
             alt="Hero"
             class="w-full max-h-[28vh] object-contain mx-auto"
           />
         </div>
-
-        <!-- Susunan Acara -->
         <div
           class="relative z-10 text-center px-4 flex-grow mt-2 w-full max-w-[700px] mx-auto"
         >
           <h4 class="text-yellow-400 text-2xl mb-4">Susunan Acara</h4>
-          <ol class="text-left list-decimal list-inside space-y-2 text-[1rem]">
+          <ol class="text-left list-decimal list-inside space-y-2 text-base">
             <li>Pra Acara</li>
             <li>Pembukaan</li>
             <li>Menyanyikan Lagu Kebangsaan “Indonesia Raya”</li>
@@ -174,8 +172,6 @@
             <li>Penobatan</li>
           </ol>
         </div>
-
-        <!-- Logo bawah -->
         <div
           class="relative z-10 pb-6 flex justify-center w-full max-w-[700px] mx-auto"
         >
@@ -189,21 +185,17 @@
 
       <!-- Page 5 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col justify-between"
+        class="relative min-h-screen snap-start bg-cover bg-center flex flex-col justify-between"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50 z-0"></div>
-
-        <!-- Hero -->
-        <div class="relative z-10 pt-4">
+        <div class="relative z-10 pt-4 px-4">
           <img
             src="assets/img/hero.png"
             alt="Hero"
             class="w-full max-w-[480px] max-h-[28vh] object-contain mx-auto"
           />
         </div>
-
-        <!-- Lokasi -->
         <div
           class="relative z-10 px-4 text-center flex-grow mt-2 flex flex-col items-center justify-start"
         >
@@ -225,15 +217,14 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               class="w-full max-w-[600px] h-[300px] rounded-xl border-0 shadow-md"
+              style="pointer-events: auto"
             ></iframe>
           </div>
         </div>
-
-        <!-- Tidak ada logo di bawah -->
       </section>
     </main>
 
-    <!-- Musik & Scroll Button -->
+    <!-- Musik & Tombol -->
     <audio id="bg-music" loop>
       <source
         src="https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3"
@@ -241,24 +232,21 @@
       />
     </audio>
 
-    <!-- Tombol Musik -->
     <button
       id="play-sequence"
-      class="fixed bottom-5 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition z-[9999]"
+      class="fixed bottom-5 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition z-50"
       title="Putar Halaman Otomatis"
     >
       <i class="fas fa-play"></i>
     </button>
 
-    <!-- Tombol Scroll ke Atas -->
     <button
       id="scroll-top"
-      class="fixed bottom-20 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition hidden z-[9999]"
+      class="fixed bottom-20 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition hidden z-50"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Panggil JS -->
     <script src="js/script.js" defer></script>
   </body>
 </html>
