@@ -92,21 +92,21 @@
 
       <!-- Page 3 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col"
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col justify-between"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50 z-0"></div>
 
-        <!-- Hero (nempel atas) -->
-        <div class="relative z-10">
+        <!-- Hero -->
+        <div class="relative z-10 pt-4">
           <img
             src="assets/img/hero.png"
             alt="Hero"
-            class="w-full max-h-[28vh] object-contain mx-auto mt-0"
+            class="w-full max-h-[28vh] object-contain mx-auto"
           />
         </div>
 
-        <!-- Konten countdown -->
+        <!-- Konten -->
         <div
           class="relative z-10 flex flex-col items-center text-center px-4 flex-grow justify-start mt-2"
         >
@@ -114,17 +114,17 @@
           <div id="countdown" class="text-yellow-400 font-bold text-lg my-4">
             Loading...
           </div>
-          <div class="flex flex-col gap-4">
-            <div class="flex flex-col items-center">
-              <i class="fas fa-calendar-alt text-yellow-400 text-3xl"></i>
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col items-center gap-2">
+              <i class="fas fa-calendar-alt text-yellow-400 text-4xl"></i>
               <p>Sabtu, 12 Juli 2025</p>
             </div>
-            <div class="flex flex-col items-center">
-              <i class="fas fa-clock text-yellow-400 text-3xl"></i>
+            <div class="flex flex-col items-center gap-2">
+              <i class="fas fa-clock text-yellow-400 text-4xl"></i>
               <p>19.00 WIB – Selesai</p>
             </div>
-            <div class="flex flex-col items-center">
-              <i class="fas fa-map-marker-alt text-yellow-400 text-3xl"></i>
+            <div class="flex flex-col items-center gap-2">
+              <i class="fas fa-map-marker-alt text-yellow-400 text-4xl"></i>
               <p>Halaman Kantor Setda Kota Pekalongan</p>
             </div>
           </div>
@@ -138,26 +138,26 @@
 
       <!-- Page 4 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col"
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col justify-between overflow-hidden"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50 z-0"></div>
 
-        <!-- Hero -->
-        <div class="relative z-10">
+        <!-- Hero (nempel atas) -->
+        <div class="relative z-10 w-full max-w-[700px] mx-auto">
           <img
             src="assets/img/hero.png"
             alt="Hero"
-            class="w-full max-h-[28vh] object-contain mx-auto mt-0"
+            class="w-full max-h-[28vh] object-contain mx-auto"
           />
         </div>
 
-        <!-- Susunan acara -->
-        <div class="relative z-10 text-center px-4 flex-grow mt-2">
+        <!-- Susunan Acara -->
+        <div
+          class="relative z-10 text-center px-4 flex-grow mt-2 w-full max-w-[700px] mx-auto"
+        >
           <h4 class="text-yellow-400 text-2xl mb-4">Susunan Acara</h4>
-          <ol
-            class="text-left max-w-md mx-auto list-decimal list-inside space-y-1"
-          >
+          <ol class="text-left list-decimal list-inside space-y-2 text-[1rem]">
             <li>Pra Acara</li>
             <li>Pembukaan</li>
             <li>Menyanyikan Lagu Kebangsaan “Indonesia Raya”</li>
@@ -173,24 +173,30 @@
         </div>
 
         <!-- Logo bawah -->
-        <div class="relative z-10 pb-6 flex justify-center">
-          <img src="assets/img/logo.png" alt="Logo" class="w-32" />
+        <div
+          class="relative z-10 pb-6 flex justify-center w-full max-w-[700px] mx-auto"
+        >
+          <img
+            src="assets/img/logo.png"
+            alt="Logo"
+            class="w-32 object-contain"
+          />
         </div>
       </section>
 
       <!-- Page 5 -->
       <section
-        class="relative h-screen snap-start bg-cover bg-center flex flex-col"
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col justify-between"
         style="background-image: url('assets/img/bg1.jpg')"
       >
         <div class="absolute inset-0 bg-black/50 z-0"></div>
 
         <!-- Hero -->
-        <div class="relative z-10">
+        <div class="relative z-10 pt-4">
           <img
             src="assets/img/hero.png"
             alt="Hero"
-            class="w-full max-w-[480px] max-h-[28vh] object-contain mx-auto mt-0"
+            class="w-full max-w-[480px] max-h-[28vh] object-contain mx-auto"
           />
         </div>
 
@@ -204,9 +210,7 @@
           <div
             class="flex flex-col items-center gap-2 text-white text-lg mb-5 max-w-md"
           >
-            <i
-              class="fas fa-map-marker-alt text-yellow-400 text-3xl md:text-4xl"
-            ></i>
+            <i class="fas fa-map-marker-alt text-yellow-400 text-4xl"></i>
             <p class="max-w-[300px]">
               Jl. Mataram No.1, Sekretariat Daerah Kota Pekalongan
             </p>
@@ -221,6 +225,8 @@
             ></iframe>
           </div>
         </div>
+
+        <!-- Tidak ada logo di bawah -->
       </section>
     </main>
 
@@ -231,18 +237,23 @@
         type="audio/mp3"
       />
     </audio>
+
+    <!-- Tombol Musik -->
     <button
       id="music-toggle"
-      class="fixed bottom-5 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition"
+      class="fixed bottom-5 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition z-[9999]"
     >
       <i class="fas fa-play"></i>
     </button>
+
+    <!-- Tombol Scroll ke Atas -->
     <button
       id="scroll-top"
-      class="fixed bottom-20 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition hidden"
+      class="fixed bottom-20 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition hidden z-[9999]"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
+
     <!-- Panggil JS -->
     <script src="js/script.js" defer></script>
   </body>
