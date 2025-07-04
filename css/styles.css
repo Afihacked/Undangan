@@ -43,71 +43,6 @@ main {
 }
 
 /* === PAGE BASE === */
-/* === KHUSUS PAGE 1 === */
-.page-1 {
-  justify-content: flex-start;
-  padding-top: 80px;
-}
-
-/* Logo atas di halaman 1 */
-.page-1 .hero-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -80px;
-}
-/* Judul UNDANGAN tetap di tengah tapi beri margin bawah */
-.page-1 h1 {
-  margin-bottom: -20px;
-  font-size: 2rem;
-}
-.page-1 .logo-img {
-  width: 200px;
-  margin-bottom: -20vh;
-}
-
-.page-1 .content-middle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1px;
-}
-
-/* Hero utama di halaman 1 (diperbesar) */
-.page-1 .hero-img {
-  width: 100%;
-  max-width: 480px;
-  max-height: 34vh;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-/* === TOMBOL AKSI === */
-.tombol-aksi {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-#buka-undangan {
-  background-color: #ffcc00;
-  color: #000;
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-#buka-undangan:hover {
-  background-color: #fff2a8;
-  transform: scale(1.05);
-}
-
 .page {
   height: 100vh;
   scroll-snap-align: start;
@@ -151,6 +86,70 @@ main {
 
 .page-2 {
   background-image: url("../assets/img/bg.jpg");
+}
+
+/* === KHUSUS PAGE 1 === */
+.page-1 {
+  justify-content: flex-start;
+  padding-top: 80px;
+}
+
+.page-1 .hero-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -80px;
+}
+
+.page-1 h1 {
+  margin-bottom: -20px;
+  font-size: 2rem;
+}
+
+.page-1 .logo-img {
+  width: 200px;
+  margin-bottom: -20vh;
+}
+
+.page-1 .content-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.page-1 .hero-img {
+  width: 100%;
+  max-width: 480px;
+  max-height: 34vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* === TOMBOL AKSI === */
+.tombol-aksi {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#buka-undangan {
+  background-color: #ffcc00;
+  color: #000;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#buka-undangan:hover {
+  background-color: #fff2a8;
+  transform: scale(1.05);
 }
 
 /* === HERO SECTION === */
@@ -217,44 +216,6 @@ main {
   z-index: 3;
 }
 
-/* === INFO BLOCK === */
-.info-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px; /* jarak antar info-item */
-  padding-top: 20px;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.info-item i {
-  font-size: 80px; /* ikon lebih besar */
-  color: #ffcc00;
-}
-
-.info-item p {
-  margin: 0;
-  font-size: 1.4rem;
-  max-width: 90%;
-  color: #fff;
-  text-align: center;
-}
-
-/* === COUNTDOWN (tengah di atas) === */
-#countdown {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #ffcc00;
-  margin-top: 12px;
-  margin-bottom: 24px;
-}
-
 /* === CONTENT BLOCK === */
 .content-middle,
 .info-block,
@@ -271,27 +232,62 @@ main {
   width: 100%;
 }
 
+/* === INFO BLOCK === */
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 0;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+}
+
+.info-item i {
+  font-size: 42px; /* Sudah direvisi agar tidak terlalu besar */
+  color: #ffcc00;
+  line-height: 1;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #fff;
+  max-width: 300px;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* === COUNTDOWN === */
+#countdown {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
 /* === SUB CONTENT === */
-.info-block,
 .address-info {
   gap: 16px;
 }
 
-.info-item,
-.address-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.info-item i,
 .address-info i {
   font-size: 28px;
   color: #ffcc00;
   margin-bottom: 8px;
 }
 
-.info-item p,
 .address-info p {
   margin: 0;
   font-size: 1.1rem;
@@ -327,12 +323,6 @@ iframe {
 .thanks-message p {
   font-size: 1.2rem;
   margin-bottom: 10px;
-}
-
-/* === COUNTDOWN === */
-#countdown {
-  font-size: 1.4rem;
-  color: #ffcc00;
 }
 
 /* === GUEST NAME === */
@@ -389,6 +379,15 @@ p {
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .hero-img {
+    max-height: 26vh;
+  }
+  .page-1 .logo-img {
+    width: 180px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-img {
     max-height: 24vh;
@@ -399,35 +398,35 @@ p {
     width: 120px;
   }
 
-  .info-item i,
   .address-info i {
     font-size: 38px;
   }
-
-  .info-block {
-    gap: 25px;
+  .info-item i {
+    font-size: 32px;
+  }
+  .info-item p {
+    font-size: 1rem;
+    padding: 0 5px;
   }
 
-  .info-item p,
   .address-info p,
   .agenda-list,
   .thanks-message p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
-  .agenda-list li {
-    font-size: 1.3rem;
-  }
-  .agenda-block {
-    font-size: 1.5rem;
-  }
-
+  .agenda-list li,
+  .agenda-block,
   .location-block {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .thanks-message h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .page-1 .logo-img {
+    width: 160px;
   }
 }
 
@@ -446,6 +445,16 @@ p {
 
   .info-item i,
   .address-info i {
-    font-size: 20px;
+    font-size: 28px;
+  }
+
+  .address-info p {
+    font-size: 1rem;
+  }
+  .info-item i {
+    font-size: 26px;
+  }
+  .info-item p {
+    font-size: 0.95rem;
   }
 }

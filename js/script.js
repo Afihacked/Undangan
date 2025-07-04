@@ -62,33 +62,33 @@ scrollBtn.addEventListener("click", () => {
   main.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// === Auto Snap ke Halaman Terdekat Saat Scroll Berhenti ===
-const pages = document.querySelectorAll(".page");
-let isScrolling;
+// // === Auto Snap ke Halaman Terdekat Saat Scroll Berhenti ===
+// const pages = document.querySelectorAll(".page");
+// let isScrolling;
 
-main.addEventListener("scroll", () => {
-  clearTimeout(isScrolling);
+// main.addEventListener("scroll", () => {
+//   clearTimeout(isScrolling);
 
-  isScrolling = setTimeout(() => {
-    let closest = null;
-    let closestDistance = Infinity;
+//   isScrolling = setTimeout(() => {
+//     let closest = null;
+//     let closestDistance = Infinity;
 
-    pages.forEach((page) => {
-      const offset = Math.abs(page.offsetTop - main.scrollTop);
-      if (offset < closestDistance) {
-        closest = page;
-        closestDistance = offset;
-      }
-    });
+//     pages.forEach((page) => {
+//       const offset = Math.abs(page.offsetTop - main.scrollTop);
+//       if (offset < closestDistance) {
+//         closest = page;
+//         closestDistance = offset;
+//       }
+//     });
 
-    if (closest) {
-      main.scrollTo({
-        top: closest.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  }, 80);
-});
+//     if (closest) {
+//       main.scrollTo({
+//         top: closest.offsetTop,
+//         behavior: "smooth",
+//       });
+//     }
+//   }, 80);
+// });
 
 // nama otomatis
 window.addEventListener("DOMContentLoaded", () => {

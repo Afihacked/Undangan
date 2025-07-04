@@ -1,88 +1,163 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Duta Wisata Pekalongan 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <script defer src="js/script.js"></script>
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+      }
+    </style>
   </head>
-  <body>
-    <main id="pages">
-      <section class="page page-1">
-        <div class="hero-top">
-          <img src="assets/img/logo.png" alt="Logo" class="logo-img" />
-        </div>
-        <div class="content-middle">
-          <h1>U N D A N G A N</h1>
-          <img src="assets/img/hero.png" alt="Hero" class="hero-img" />
-          <p>
+  <body class="text-white h-screen overflow-hidden">
+    <main class="h-screen overflow-y-scroll snap-y snap-mandatory">
+      <!-- Page 1 -->
+      <section
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col items-center pt-20"
+        style="background-image: url('assets/img/bg1.jpg')"
+      >
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 flex flex-col items-center -mt-16">
+          <img src="assets/img/logo.png" alt="Logo" class="w-48 mb-6" />
+          <h1 class="text-yellow-400 text-2xl mb-4 tracking-widest">
+            U N D A N G A N
+          </h1>
+          <img
+            src="assets/img/hero.png"
+            alt="Hero"
+            class="w-full max-w-md max-h-[34vh] object-contain mb-4"
+          />
+          <p class="text-center">
             Kepada Yth. Bapak/Ibu/Saudara/i<br /><strong>Tamu Undangan</strong>
           </p>
-          <p id="nama-tamu-wrapper" style="display: none">
-            <span id="nama-tamu" class="nama-tamu"></span>
+          <p id="nama-tamu-wrapper" class="hidden mt-1">
+            <span
+              id="nama-tamu"
+              class="uppercase font-bold text-yellow-400 text-xl"
+            ></span>
           </p>
-          <!-- Tombol Aksi -->
-          <div class="tombol-aksi">
-            <button id="buka-undangan">Buka Undangan</button>
+          <div class="mt-4">
+            <button
+              id="buka-undangan"
+              class="bg-yellow-400 text-black font-bold py-2 px-6 rounded-lg shadow hover:bg-yellow-300 transition"
+            >
+              Buka Undangan
+            </button>
           </div>
         </div>
       </section>
 
-      <section class="page page-2">
-        <div class="hero-container">
-          <img src="assets/img/orang.png" alt="Orang" class="bg-orang" />
-          <img src="assets/img/hero.png" alt="Hero" class="hero-overlay" />
-          <img src="assets/img/logo.png" alt="Logo" class="logo-atas" />
+      <!-- Page 2 -->
+      <section
+        class="relative h-screen snap-start bg-cover bg-center"
+        style="background-image: url('assets/img/bg.jpg')"
+      >
+        <div class="absolute inset-0 bg-black/50 z-0"></div>
+        <div
+          class="relative h-full max-w-xl mx-auto flex flex-col items-center justify-center z-10"
+        >
+          <img
+            src="assets/img/orang.png"
+            alt="Orang"
+            class="w-full max-h-full object-contain z-10"
+          />
+          <img
+            src="assets/img/hero.png"
+            alt="Hero"
+            class="absolute bottom-0 w-full z-20"
+          />
+          <img
+            src="assets/img/logo.png"
+            alt="Logo"
+            class="absolute top-5 w-40 z-30"
+          />
         </div>
       </section>
 
-      <section class="page page-3">
-        <div class="hero-top">
-          <img src="assets/img/hero.png" alt="Hero" class="hero-img" />
+      <!-- Page 3 -->
+      <section
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col"
+        style="background-image: url('assets/img/bg1.jpg')"
+      >
+        <div class="absolute inset-0 bg-black/50 z-0"></div>
+
+        <!-- Hero (nempel atas) -->
+        <div class="relative z-10">
+          <img
+            src="assets/img/hero.png"
+            alt="Hero"
+            class="w-full max-h-[28vh] object-contain mx-auto mt-0"
+          />
         </div>
-        <div class="content-middle">
+
+        <!-- Konten countdown -->
+        <div
+          class="relative z-10 flex flex-col items-center text-center px-4 flex-grow justify-start mt-2"
+        >
           <p>Menghitung waktu menuju acara...</p>
-          <div id="countdown">Menghitung waktu menuju acara...</div>
-          <div class="info-block">
-            <div class="info-item">
-              <i class="fas fa-calendar-alt"></i>
+          <div id="countdown" class="text-yellow-400 font-bold text-lg my-4">
+            Loading...
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col items-center">
+              <i class="fas fa-calendar-alt text-yellow-400 text-3xl"></i>
               <p>Sabtu, 12 Juli 2025</p>
             </div>
-            <div class="info-item">
-              <i class="fas fa-clock"></i>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-clock text-yellow-400 text-3xl"></i>
               <p>19.00 WIB – Selesai</p>
             </div>
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt"></i>
+            <div class="flex flex-col items-center">
+              <i class="fas fa-map-marker-alt text-yellow-400 text-3xl"></i>
               <p>Halaman Kantor Setda Kota Pekalongan</p>
             </div>
           </div>
         </div>
-        <div class="logo-bottom">
-          <img src="assets/img/logo.png" alt="Logo" class="bottom-logo" />
+
+        <!-- Logo bawah -->
+        <div class="relative z-10 pb-6 flex justify-center">
+          <img src="assets/img/logo.png" alt="Logo" class="w-32" />
         </div>
       </section>
 
-      <section class="page page-4">
-        <div class="hero-top">
-          <img src="assets/img/hero.png" alt="Hero" class="hero-img" />
+      <!-- Page 4 -->
+      <section
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col"
+        style="background-image: url('assets/img/bg1.jpg')"
+      >
+        <div class="absolute inset-0 bg-black/50 z-0"></div>
+
+        <!-- Hero -->
+        <div class="relative z-10">
+          <img
+            src="assets/img/hero.png"
+            alt="Hero"
+            class="w-full max-h-[28vh] object-contain mx-auto mt-0"
+          />
         </div>
-        <div class="agenda-block">
-          <h4>Susunan Acara</h4>
-          <ol class="agenda-list">
+
+        <!-- Susunan acara -->
+        <div class="relative z-10 text-center px-4 flex-grow mt-2">
+          <h4 class="text-yellow-400 text-2xl mb-4">Susunan Acara</h4>
+          <ol
+            class="text-left max-w-md mx-auto list-decimal list-inside space-y-1"
+          >
             <li>Pra Acara</li>
             <li>Pembukaan</li>
             <li>Menyanyikan Lagu Kebangsaan “Indonesia Raya”</li>
@@ -96,60 +171,79 @@
             <li>Penobatan</li>
           </ol>
         </div>
-        <div class="logo-bottom">
-          <img src="assets/img/logo.png" alt="Logo" class="bottom-logo" />
+
+        <!-- Logo bawah -->
+        <div class="relative z-10 pb-6 flex justify-center">
+          <img src="assets/img/logo.png" alt="Logo" class="w-32" />
         </div>
       </section>
 
-      <section class="page page-5">
-        <div class="hero-top">
-          <img src="assets/img/hero.png" alt="Hero" class="hero-img" />
+      <!-- Page 5 -->
+      <section
+        class="relative h-screen snap-start bg-cover bg-center flex flex-col"
+        style="background-image: url('assets/img/bg1.jpg')"
+      >
+        <div class="absolute inset-0 bg-black/50 z-0"></div>
+
+        <!-- Hero -->
+        <div class="relative z-10">
+          <img
+            src="assets/img/hero.png"
+            alt="Hero"
+            class="w-full max-w-[480px] max-h-[28vh] object-contain mx-auto mt-0"
+          />
         </div>
-        <div class="location-block">
-          <h4>Lokasi Acara</h4>
-          <div class="address-info">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>Jl. Mataram No.1, Sekretariat Daerah Kota Pekalongan</p>
+
+        <!-- Lokasi -->
+        <div
+          class="relative z-10 px-4 text-center flex-grow mt-2 flex flex-col items-center justify-start"
+        >
+          <h4 class="text-2xl md:text-3xl font-serif text-yellow-400 mb-4">
+            Lokasi Acara
+          </h4>
+          <div
+            class="flex flex-col items-center gap-2 text-white text-lg mb-5 max-w-md"
+          >
+            <i
+              class="fas fa-map-marker-alt text-yellow-400 text-3xl md:text-4xl"
+            ></i>
+            <p class="max-w-[300px]">
+              Jl. Mataram No.1, Sekretariat Daerah Kota Pekalongan
+            </p>
           </div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.946861970657!2d109.65895687475678!3d-6.896959393102218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e702682d2dfd669%3A0xf86aa028ad60a7d3!2sSekretariat%20Daerah%20Kota%20Pekalongan!5e0!3m2!1sid!2sid!4v1751089353681!5m2!1sid!2sid"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </section>
-
-      <section class="page page-6">
-        <div class="hero-top">
-          <img src="assets/img/hero.png" alt="Hero" class="hero-img" />
-        </div>
-        <div class="thanks-message">
-          <h3>Terima Kasih</h3>
-          <p>
-            Atas perhatian, kehadiran, dan doa restu Bapak/Ibu/Saudara/i dalam
-            acara Pemilihan Mas dan Mbak Duta Wisata Kota Pekalongan 2025.
-          </p>
-          <p>Sampai jumpa di acara!</p>
-        </div>
-        <div class="logo-bottom">
-          <img src="assets/img/logo.png" alt="Logo" class="bottom-logo" />
+          <div class="w-full flex justify-center px-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.946861970657!2d109.65895687475678!3d-6.896959393102218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e702682d2dfd669%3A0xf86aa028ad60a7d3!2sSekretariat%20Daerah%20Kota%20Pekalongan!5e0!3m2!1sid!2sid!4v1751089353681!5m2!1sid!2sid"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full max-w-[600px] h-[300px] rounded-xl border-0 shadow-md"
+            ></iframe>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Musik -->
+    <!-- Musik & Scroll Button -->
     <audio id="bg-music" loop>
       <source
         src="https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3"
         type="audio/mp3"
       />
     </audio>
-    <button id="music-toggle" title="Musik Latar">
+    <button
+      id="music-toggle"
+      class="fixed bottom-5 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition"
+    >
       <i class="fas fa-play"></i>
     </button>
-    <button id="scroll-top" title="Kembali ke Atas">
+    <button
+      id="scroll-top"
+      class="fixed bottom-20 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition hidden"
+    >
       <i class="fas fa-arrow-up"></i>
     </button>
+    <!-- Panggil JS -->
+    <script src="js/script.js" defer></script>
   </body>
 </html>
