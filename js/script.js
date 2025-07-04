@@ -22,18 +22,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bg-music");
   const toggleBtn = document.getElementById("music-toggle");
   let isMusicPlaying = false;
+
+  // Tombol manual
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
       if (isMusicPlaying) {
         music.pause();
         toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
       } else {
-        music.play().catch((err) => console.warn("Gagal memutar musik:", err));
+        music.play().catch((err) => console.warn("Gagal play:", err));
         toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
       }
       isMusicPlaying = !isMusicPlaying;
     });
   }
+
+  // Autoplay setelah interaksi pengguna
+  function tryPlayMusic() {
+    music
+      .play()
+      .then(() => {
+        isMusicPlaying = true;
+        toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      })
+      .catch((err) => {
+        console.warn("Autoplay diblokir:", err);
+      });
+  }
+
+  ["click", "touchstart", "scroll"].forEach((eventName) => {
+    window.addEventListener(
+      eventName,
+      function once() {
+        tryPlayMusic();
+        window.removeEventListener(eventName, once);
+      },
+      { once: true }
+    );
+  });
 
   // === Scroll ke atas tombol ===
   const scrollBtn = document.getElementById("scroll-top");
