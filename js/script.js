@@ -63,4 +63,64 @@ document.addEventListener("DOMContentLoaded", () => {
     namaEl.textContent = decodeURIComponent(nama);
     wrapper.style.display = "block";
   }
+
+  // === Lazy Load Gambar ===
+  const lazyImages = document.querySelectorAll("img");
+  lazyImages.forEach((img) => {
+    img.setAttribute("loading", "lazy");
+    img.style.opacity = "0";
+  });
+
+  const lazyObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.style.transition = "opacity 0.6s ease";
+          img.style.opacity = "1";
+          observer.unobserve(img);
+        }
+      });
+    },
+    { rootMargin: "200px 0px", threshold: 0.01 }
+  );
+
+  lazyImages.forEach((img) => lazyObserver.observe(img));
+
+  // === Background WebP Support + Lazy Load ===
+  function supportsWebP() {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(img.width > 0 && img.height > 0);
+      img.onerror = () => resolve(false);
+      img.src =
+        "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSywA";
+    });
+  }
+
+  supportsWebP().then((isWebPSupported) => {
+    const lazySections = document.querySelectorAll(".lazy-bg");
+
+    const bgObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const bgWebp = el.getAttribute("data-bg-webp");
+            const bgJpg = el.getAttribute("data-bg-jpg");
+            const bgUrl = isWebPSupported && bgWebp ? bgWebp : bgJpg;
+
+            if (bgUrl && !el.classList.contains("bg-loaded")) {
+              el.style.backgroundImage = `url('${bgUrl}')`;
+              el.classList.add("bg-loaded");
+              observer.unobserve(el);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    lazySections.forEach((section) => bgObserver.observe(section));
+  });
 });
