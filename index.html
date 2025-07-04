@@ -13,19 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-      body {
-        font-family: "Open Sans", sans-serif;
-        -webkit-overflow-scrolling: touch;
-      }
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: "Playfair Display", serif;
-      }
-    </style>
   </head>
 
   <body class="text-white h-screen overflow-hidden">
@@ -80,7 +69,7 @@
         <img
           src="assets/img/logo.png"
           alt="Logo"
-          class="absolute top-10 left-1/2 -translate-x-1/2 w-32 z-30"
+          class="absolute top-10 left-1/2 -translate-x-1/2 w-48 z-30"
         />
 
         <!-- Wrapper gambar orang dan hero overlay -->
@@ -235,16 +224,13 @@
 
     <!-- Musik & Tombol -->
     <audio id="bg-music" loop>
-      <source
-        src="https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3"
-        type="audio/mp3"
-      />
+      <source src="assets/music/backsound.MP3" type="audio/mp3" />
     </audio>
 
     <button
-      id="play-sequence"
+      id="music-toggle"
       class="fixed bottom-5 right-5 w-10 h-10 rounded-full bg-yellow-400 text-black text-lg shadow-md flex items-center justify-center hover:bg-yellow-300 transition z-50"
-      title="Putar Halaman Otomatis"
+      title="Putar Musik"
     >
       <i class="fas fa-play"></i>
     </button>

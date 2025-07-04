@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Nama tamu ===
+  // === Nama tamu dari URL ===
   const urlParams = new URLSearchParams(window.location.search);
   const nama = urlParams.get("to");
   if (nama) {
@@ -63,76 +63,4 @@ document.addEventListener("DOMContentLoaded", () => {
     namaEl.textContent = decodeURIComponent(nama);
     wrapper.style.display = "block";
   }
-
-  // === AUTO SCROLL PER HALAMAN ===
-  const playButton = document.getElementById("play-sequence");
-  const sections = document.querySelectorAll("main section");
-  let currentIndex = 0;
-  let intervalId = null;
-  let isPlaying = false;
-
-  function getCurrentSectionIndex() {
-    const scrollTop = main.scrollTop;
-    let index = 0;
-    for (let i = 0; i < sections.length; i++) {
-      if (scrollTop >= sections[i].offsetTop - 5) {
-        index = i;
-      }
-    }
-    return index;
-  }
-
-  function stopAutoScroll() {
-    clearInterval(intervalId);
-    isPlaying = false;
-    playButton.innerHTML = '<i class="fas fa-play"></i>';
-  }
-
-  function startAutoScroll() {
-    currentIndex = getCurrentSectionIndex();
-    isPlaying = true;
-    playButton.innerHTML = '<i class="fas fa-pause"></i>';
-
-    intervalId = setInterval(() => {
-      currentIndex++;
-      if (currentIndex < sections.length) {
-        main.scrollTo({
-          top: sections[currentIndex].offsetTop,
-          behavior: "smooth",
-        });
-      } else {
-        stopAutoScroll();
-      }
-    }, 3000);
-  }
-
-  if (playButton) {
-    playButton.addEventListener("click", () => {
-      if (isPlaying) {
-        stopAutoScroll(); // toggle to stop
-      } else {
-        Swal.fire({
-          title: "Aktifkan Mode Otomatis?",
-          text: "Halaman akan bergulir otomatis setiap 3 detik.",
-          icon: "info",
-          showCancelButton: true,
-          confirmButtonText: "Mulai",
-          cancelButtonText: "Batal",
-          confirmButtonColor: "#facc15",
-          cancelButtonColor: "#999",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            startAutoScroll();
-          }
-        });
-      }
-    });
-  }
-
-  // === Stop auto-scroll jika pengguna scroll manual ===
-  ["wheel", "touchstart", "keydown"].forEach((eventName) => {
-    main.addEventListener(eventName, () => {
-      if (isPlaying) stopAutoScroll();
-    });
-  });
 });
