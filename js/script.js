@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // === Countdown ===
   const countdownEl = document.getElementById("countdown");
-  const eventDate = new Date("2025-07-12T19:00:00").getTime();
+  const eventDate = new Date("2025-07-13T19:00:00").getTime();
   setInterval(() => {
     const now = new Date().getTime();
     const distance = eventDate - now;
@@ -38,28 +38,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Autoplay setelah interaksi pengguna
-  function tryPlayMusic() {
-    music
-      .play()
-      .then(() => {
-        isMusicPlaying = true;
-        toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
-      })
-      .catch((err) => {
-        console.warn("Autoplay diblokir:", err);
-      });
-  }
+  // function tryPlayMusic() {
+  //   music
+  //     .play()
+  //     .then(() => {
+  //       isMusicPlaying = true;
+  //       toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+  //     })
+  //     .catch((err) => {
+  //       console.warn("Autoplay diblokir:", err);
+  //     });
+  // }
 
-  ["click", "touchstart", "scroll"].forEach((eventName) => {
-    window.addEventListener(
-      eventName,
-      function once() {
-        tryPlayMusic();
-        window.removeEventListener(eventName, once);
-      },
-      { once: true }
-    );
-  });
+  // ["click", "touchstart", "scroll"].forEach((eventName) => {
+  //   window.addEventListener(
+  //     eventName,
+  //     function once() {
+  //       tryPlayMusic();
+  //       window.removeEventListener(eventName, once);
+  //     },
+  //     { once: true }
+  //   );
+  // });
 
   // === Scroll ke atas tombol ===
   const scrollBtn = document.getElementById("scroll-top");
