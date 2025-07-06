@@ -10,7 +10,7 @@ h4 {
 }
 
 .lazy-bg {
-  background-color: #000; /* fallback */
+  background-color: #7a580f; /* fallback */
   transition: background-image 0.6s ease, opacity 0.6s ease;
   opacity: 0;
 }
